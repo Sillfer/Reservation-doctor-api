@@ -15,15 +15,15 @@ class Model{
     public function __construct(){
         $conn = "mysql:host=" . $this->db_host . ";dbname=" . $this->db_name;
         $options = array(
-            PDO::ATTR_PERSISTENT => true,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            PDO::ATTR_PERSISTENT => true,   
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION   // * Set the error mode to exception
         );
         try{        
-            $this->db_handler = new PDO($conn, $this->db_user, $this->db_pass, $options);
-        }catch(PDOException $e){
-            echo "<pre>";
+            $this->db_handler = new PDO($conn, $this->db_user, $this->db_pass, $options);   // * Create a new PDO instance
+        }catch(PDOException $e){    
+            echo "<pre>";   
             echo $e->getMessage();
-            echo "</pre>";
+            echo "</pre>";  
         }
     }
 
